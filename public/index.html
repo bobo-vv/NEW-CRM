@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sales CRM — Doors & Flooring</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
+            colors: {
+              brand: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca' }
+            },
+            boxShadow: {
+              soft: '0 1px 2px rgba(16,24,40,.06), 0 8px 24px rgba(16,24,40,.06)',
+              lift: '0 12px 40px rgba(2,6,23,.14)'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html,body { height:100%; }
+      .glass { background: rgba(255,255,255,.85); backdrop-filter: blur(10px); }
+      .card { border-radius: 1.25rem; border: 1px solid #e5e7eb; background: rgba(255,255,255,.9); box-shadow: 0 1px 2px rgba(16,24,40,.06), 0 8px 24px rgba(16,24,40,.06) }
+      .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .75rem; border-radius:.75rem; border:1px solid #e2e8f0; }
+      .btn:hover { background:#f8fafc }
+      .btn-primary { background:#4f46e5; color:#fff; border-color:#4f46e5 }
+      .btn-primary:hover { background:#4338ca }
+      .input { width:100%; border:1px solid #e2e8f0; padding:.5rem .75rem; border-radius:.75rem; outline:none }
+      .input:focus { box-shadow:0 0 0 3px rgba(99,102,241,.2); border-color:#6366f1 }
+      .label { font-size:.75rem; color:#64748b; margin-bottom:.25rem; display:block }
+      .chip { display:inline-flex; align-items:center; gap:.25rem; padding:.25rem .5rem; border-radius:999px; font-size:.75rem }
+      .thumb { width:96px; height:96px; object-fit:cover; border-radius:.75rem; border:1px solid #e2e8f0 }
+      .navbtn { width:100%; text-align:left; display:flex; align-items:center; gap:.75rem; padding:.5rem .75rem; border-radius:.75rem; border:1px solid transparent }
+      .navbtn:hover { background:#ffffffaa }
+      .navbtn.active { background:#fff; box-shadow:0 0 0 2px rgba(99,102,241,.2) }
+      .masonry { column-count: 2; column-gap: 1rem; }
+      @media(min-width:1024px){ .masonry { column-count: 3; } }
+      .masonry-item { break-inside: avoid; margin-bottom: 1rem; }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-800 min-h-full">
+    <div id="app" class="min-h-full"></div>
+    <div id="modal" class="fixed inset-0 hidden z-50">
+      <div class="absolute inset-0 bg-slate-900/40"></div>
+      <div class="min-h-full grid place-items-center p-4">
+        <div id="modalCard" class="card w-full max-w-2xl p-0 overflow-hidden"></div>
+      </div>
+    </div>
+    <div id="toast" class="fixed bottom-4 right-4 z-[60] space-y-2"></div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
