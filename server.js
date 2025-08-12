@@ -34,10 +34,7 @@ app.use(helmet({
 }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => console.log('CRM running on http://localhost:' + PORT));
-const PORT = process.env.PORT || 5050;
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data');
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const UPLOAD_DIR = path.join(DATA_DIR, 'uploads');
