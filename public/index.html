@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sales CRM — Doors & Flooring</title>
+    <!-- Tailwind + Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          container: { center: true, padding: '1rem' },
+          extend: {
+            fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
+            colors: {
+              brand: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3' },
+              ink: { 600:'#1f2937',500:'#334155',400:'#64748b' }
+            },
+            boxShadow: {
+              subtle: '0 1px 2px rgba(16,24,40,.05)',
+              card: '0 1px 3px rgba(16,24,40,.06), 0 8px 20px rgba(16,24,40,.05)',
+              elevate:'0 12px 30px rgba(2,6,23,.12)'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root{
+        --radius: 14px;
+      }
+      html,body { height:100%; }
+      .layout { min-height:100vh; background: linear-gradient(180deg,#f8fafc 0%,#f1f5f9 100%); }
+      .sidebar { width:280px }
+      .surface { background-color:#fff; border:1px solid #e5e7eb; border-radius: var(--radius); box-shadow: var(--shadow,0 1px 2px rgba(16,24,40,.06)); }
+      .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .8rem; border-radius:10px; border:1px solid #e5e7eb; transition: all .15s ease; }
+      .btn:hover { background:#f8fafc }
+      .btn-primary { background:#4f46e5; color:#fff; border-color:#4f46e5; }
+      .btn-primary:hover { background:#4338ca }
+      .btn-ghost { border-color:transparent; }
+      .input { width:100%; border:1px solid #e5e7eb; padding:.55rem .8rem; border-radius:10px; outline:none; transition: box-shadow .15s ease; }
+      .input:focus { box-shadow:0 0 0 3px rgba(99,102,241,.18); border-color:#6366f1 }
+      .label { font-size:.75rem; color:#64748b; margin-bottom:.25rem; display:block }
+      .navlink { display:flex; align-items:center; gap:.75rem; padding:.6rem .8rem; border-radius:10px; color:#334155; }
+      .navlink:hover { background:#f8fafc }
+      .navlink.active { background:#eef2ff; color:#3730a3; font-weight:600 }
+      .kanban-col { border-radius:12px; border:1px dashed #e5e7eb; min-height:120px; background:#ffffffaa; }
+      .deal-card { border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow: var(--shadow,0 1px 2px rgba(16,24,40,.06)); }
+      .hero { background: radial-gradient(80% 80% at 20% 0%, #e0e7ff 0%, rgba(224,231,255,0) 60%), linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); }
+      .masonry { column-count: 2; column-gap: 1rem; }
+      @media(min-width:1024px){ .masonry { column-count: 3; } }
+      .masonry-item { break-inside: avoid; margin-bottom: 1rem; }
+    </style>
+  </head>
+  <body class="layout text-ink-600">
+    <div id="app"></div>
+
+    <!-- Modal + Toast -->
+    <div id="modal" class="fixed inset-0 hidden z-50">
+      <div class="absolute inset-0 bg-slate-900/40"></div>
+      <div class="min-h-full grid place-items-center p-4">
+        <div id="modalCard" class="surface w-full max-w-2xl overflow-hidden"></div>
+      </div>
+    </div>
+    <div id="toast" class="fixed bottom-4 right-4 z-[60] space-y-2"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
