@@ -13,6 +13,20 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const { nanoid } = require('nanoid');
 const helmet = require('helmet');
+app.use(helmet({
+  contentSecurityPolicy: {
+    useDefaults: true,
+    directives: {
+      "default-src": ["'self'"],
+      "script-src": ["'self'", "https://cdn.tailwindcss.com", "https://unpkg.com"],
+      "style-src":  ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
+      "font-src":   ["'self'", "https://fonts.gstatic.com", "data:"],
+      "img-src":    ["'self'", "data:", "blob:"],
+      "connect-src": ["'self'"]
+    }
+  },
+  crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const cron = require('node-cron');
